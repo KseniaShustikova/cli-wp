@@ -186,4 +186,4 @@ if (has_nav_menu('menu-1')) {
         </div>
     </section>
 
-    <?php breadcrumbs(); ?>
+    <?php breadcrumbs(); ?> 
