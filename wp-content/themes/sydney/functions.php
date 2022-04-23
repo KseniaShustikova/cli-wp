@@ -187,4 +187,4 @@ require_once dirname(__FILE__) . '/tgm/class-tgm-plugin-activation.php';
 /**
  * tgm plugin activation init-tgm.php
  */
-require get_template_directory() . '/tgm/init-tgm.php';
+//require get_template_directory() . '/tgm/init-tgm.php';
