@@ -77,3 +77,4 @@ function my_theme_register_required_plugins() {
 	tgmpa( $plugins, $config );
 
 }
+require_once get_template_directory() . '/tgm/class-tgm-plugin-activation.php';
