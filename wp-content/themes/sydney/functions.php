@@ -188,3 +188,34 @@ require_once dirname(__FILE__) . '/tgm/class-tgm-plugin-activation.php';
  * tgm plugin activation init-tgm.php
  */
 //require get_template_directory() . '/tgm/init-tgm.php';
+
+/**
+ * Enqueue scripts and styles.
+
+ */
+function sydney_scripts()
+{
+    wp_enqueue_style('sydney-2021-bootstrap', get_template_directory_uri() . "/assets/css/bootstrap.min.css", array(), _S_VERSION);
+    wp_enqueue_style('sydney-2021-font-awesome', get_template_directory_uri() . "/assets/css/font-awesome.min.css", array(), _S_VERSION);
+    wp_enqueue_style('sydney-2021-style', get_stylesheet_uri(), array(), _S_VERSION);
+    wp_enqueue_style('sydney-2021-stylesheet', get_template_directory_uri() . "/assets/css/stylesheet.css", array(), _S_VERSION);
+    wp_enqueue_style('sydney-2021-animate', get_template_directory_uri() . "/assets/css/animate.css", array(), _S_VERSION);
+    wp_enqueue_style('sydney-2021-owl.carousel', get_template_directory_uri() . "/assets/css/owl.carousel.min.css", array(), _S_VERSION);
+    wp_style_add_data('sydney-2021-style', 'rtl', 'replace');
+    wp_enqueue_script('jquery');
+    wp_enqueue_script('sydney-2021-bootstrap', get_template_directory_uri() . '/assets/js/bootstrap.min.js', array(), _S_VERSION, true);
+    wp_enqueue_script('sydney-2021-jquery-h5validate', get_template_directory_uri() . '/assets/js/jquery.h5validate.js', array(), _S_VERSION, true);
+    wp_enqueue_script('sydney-2021-owl-carousel', get_template_directory_uri() . '/assets/js/owl.carousel.min.js', array(), _S_VERSION, true);
+    wp_enqueue_script('sydney-2021-main', get_template_directory_uri() . '/assets/js/main.js', array(), _S_VERSION, true);
+    if (is_singular() && comments_open() && get_option('thread_comments')) {
+        wp_enqueue_script('comment-reply');
+    }
+}
+add_action('wp_enqueue_scripts', 'sydney_2021_scripts');
+
+ // This theme uses wp_nav_menu() in one location.
+ register_nav_menus(
+	array(
+		'menu-1' => esc_html__('Primary', 'sydney-2021'),
+	)
+);
