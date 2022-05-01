@@ -21,14 +21,14 @@ function sydney_2021_customize_register($wp_customize)
             'blogname',
             array(
                 'selector' => '.site-title a',
-                'render_callback' => 'sydney_2021_customize_partial_blogname',
+                'render_callback' => 'sydney_customize_partial_blogname',
             )
         );
         $wp_customize->selective_refresh->add_partial(
             'blogdescription',
             array(
                 'selector' => '.site-description',
-                'render_callback' => 'sydney_2021_customize_partial_blogdescription',
+                'render_callback' => 'sydney_customize_partial_blogdescription',
             )
         );
     }
@@ -60,9 +60,9 @@ function sydney_2021_customize_partial_blogdescription()
  */
 function sydney_2021_customize_preview_js()
 {
-    wp_enqueue_script('sydney-2021-customizer', get_template_directory_uri() . '/js/customizer.js', array('customize-preview'), _S_VERSION, true);
+    wp_enqueue_script('sydney-customizer', get_template_directory_uri() . '/js/customizer.js', array('customize-preview'), _S_VERSION, true);
 }
-add_action('customize_preview_init', 'sydney_2021_customize_preview_js');
+add_action('customize_preview_init', 'sydney_customize_preview_js');
 
 /**
  * Kirki сustomizer.
@@ -72,7 +72,7 @@ if (!class_exists('Kirki')) {
     return;
 }
 
-Kirki::add_config('sydney2021', array(
+Kirki::add_config('sydney', array(
     'capability' => 'edit_theme_options',
     'option_type' => 'theme_mod',
 ));
@@ -82,7 +82,7 @@ Kirki::add_config('sydney2021', array(
  */
 function sydney2021_customize_preview_js()
 {
-    wp_enqueue_script('sydney2021-customizer', get_template_directory_uri() . '/js/customizer.js', array('customize-preview'), '20151215', true);
+    wp_enqueue_script('sydney-customizer', get_template_directory_uri() . '/js/customizer.js', array('customize-preview'), '20151215', true);
 }
 add_action('customize_preview_init', 'sydney2021_customize_preview_js');
 
