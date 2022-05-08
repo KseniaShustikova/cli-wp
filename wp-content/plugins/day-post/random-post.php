@@ -18,8 +18,12 @@ if (!function_exists('add_action')) {
 
 // Setup
 define('RP_PLUGIN_URL', __FILE__);
+
 // Includes
 include dirname(RP_PLUGIN_URL) . '/includes/widgets.php';
+include dirname(RP_PLUGIN_URL) . '/includes/widgets/daily-post.php';
+
 // Hooks
 add_action('widgets_init', 'r_widgets_init');
+
 // Shortcodes
